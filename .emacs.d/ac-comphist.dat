@@ -1,0 +1,26 @@
+((("float" .
+   [0 0 0 0 1])
+  ("return" .
+   [0 0 0 0 0 1])
+  ("void" .
+   [0 0 0 1])
+  ("toggle-truncate-lines" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("kbd" .
+   [1 0 0])
+  ("global-map" .
+   [0 0 0 0 0 0 0 0 0 1])
+  ("define-key" .
+   [0 0 0 0 0 0 0 0 0 1])
+  ("defimage" .
+   [0 0 0 0 0 1 0 0])
+  ("kohekohe" .
+   [2 0 0 0 0 0 0 0])
+  ("require" .
+   [2 0 0 0 0 0 0])
+  ("load-theme" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("solarized-theme.el" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("solarized-color-blend" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])))
