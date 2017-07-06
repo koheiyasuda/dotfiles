@@ -56,5 +56,7 @@
     (x-focus-frame nil))
 
 ;; コメントの色を変更
-(set-face-foreground 'font-lock-comment-face "salmon")
-(set-face-foreground 'font-lock-comment-delimiter-face "salmon")
+;;(set-face-foreground 'font-lock-comment-face "salmon")
+;;(set-face-foreground 'font-lock-comment-delimiter-face "salmon")
+
+

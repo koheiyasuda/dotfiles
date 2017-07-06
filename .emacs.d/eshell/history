@@ -3,3 +3,46 @@ ls
 ./switch 
 ./switch 
 exit
+pwd
+cd ..
+cd study/
+mkdir github
+ls
+cd github/
+ls
+cd ..
+ls
+cd github/
+ls
+open matome.txt 
+open matome.txt 
+open .
+ls
+mv matome.txt matome.tex
+ls
+open matome.tex 
+mv matome.tex matome.txt
+ls
+rm matome.aux
+rm matome.log
+rm matome.pdf
+rm matome.synctex.gz 
+ls
+open gitimage.png 
+ls
+cd ~/Desktop/study_program/study/
+ls
+ls
+exit
+ls
+open test.html 
+open test.html 
+exit
+ls
+pwd
+cd ..
+pwd
+git push origin master
+git commit -a
+exit
+exit

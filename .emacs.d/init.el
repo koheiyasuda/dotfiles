@@ -1,35 +1,42 @@
-
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 
-;; 検索、置換時の大文字、小文字の区別
+;; ロードパスの設定
 ;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; オプションの "Ignore Case for Search" で設定可
-;;
-;; ;; 検索(全般)
-;; (setq case-fold-search t)
-;;
-;; ;; インクリメンタルサーチ
-;; (setq isearch-case-fold-search nil)
+;; Emacs 23より前のバージョンを利用している場合
+;; user-emacs-directory変数が未定義のため以下の設定を追加
+(when (< emacs-major-version 23)
+  (defvar user-emacs-directory "~/.emacs.d/"))
 
 
-;; バッファー名の検索
-(setq read-buffer-completion-ignore-case t)
+;;load-path を追加する関数を定義
+(defun add-to-load-path (&rest paths)
+  (let (path)
+    (dolist (path paths paths)
+      (let ((default-directory
+	      (expand-file-name (concat user-emacs-directory path))))
+	(add-to-list 'load-path default-directory)
+	(if (fboundp 'normal-top-level-add-subdirs-to-load-path)
+	    (normal-top-level-add-subdirs-to-load-path))))))
+
+;; 引数のディレクトリとそのサブディレクトリをload-pathに追加
+(add-to-load-path "elisp" "conf" "public_repos" "elpa")
+
+;; init-loader.el
+(require 'init-loader)
+(init-loader-load "~/.emacs.d/conf")
 
 
-;; ファイル名の検索
-(setq read-file-name-completion-ignore-case t)
 
-
-;;;置換(全般)
-;; (setq case-replace t)
-
-;; dabbrev 時の置換
-(setq dabbrev-case-replace nil)
-
-
+;; packageにMELPA追加
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(package-initialize)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 
@@ -99,40 +106,18 @@
 ;; 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;;
+;; Auto Complete
+;;
 (when (require 'auto-complete-config nil t)
+  (add-to-list 'ac-dictionary-directories "~/.emacs.d/elisp/ac-dict")
+  (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
   (ac-config-default))
 
 
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; 
-;; ロードパスの設定
-;; 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; Emacs 23より前のバージョンを利用している場合
-;; user-emacs-directory変数が未定義のため以下の設定を追加
-(when (< emacs-major-version 23)
-  (defvar user-emacs-directory "~/.emacs.d/"))
-
-
-;;load-path を追加する関数を定義
-(defun add-to-load-path (&rest paths)
-  (let (path)
-    (dolist (path paths paths)
-      (let ((default-directory
-	      (expand-file-name (concat user-emacs-directory path))))
-	(add-to-list 'load-path default-directory)
-	(if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-	    (normal-top-level-add-subdirs-to-load-path))))))
-
-;; 引数のディレクトリとそのサブディレクトリをload-pathに追加
-(add-to-load-path "elisp" "conf" "public_repos")
-
-;; init-loader.el
-(require 'init-loader)
-(init-loader-load "~/.emacs.d/conf")
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -341,33 +326,21 @@
 (define-key global-map "\M-?" 'help-for-help)
 
 
-;;
-;; Auto Complete
-;;
-(when (require 'auto-complete-config nil t)
-  (add-to-list 'ac-dictionary-directories "~/.emacs.d/elisp/ac-dict")
-  (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
-  (ac-config-default))
+
 
 ;; auto-installの設定
-(when (require 'auto-install nil t)
+;;(when (require 'auto-install nil t)
   ;; インストールディレクトリの設定
-  (setq auto-install-directory "~/.emacs.d/elisp/")
+  ;;(setq auto-install-directory "~/.emacs.d/elisp/")
   ;; EmacsWikiに登録されているelispの名前を取得する
-  (auto-install-update-emacswiki-package-name t)
+  ;;(auto-install-update-emacswiki-package-name t)
   ;; 必要ならプロキシ設定
   ;; (setq url-proxy-services '(("http" . "localhost:8339")))
   ;; install-elisp の関数を利用可能にする
-  (auto-install-compatibility-setup))
+  ;;(auto-install-compatibility-setup))
 
-;; packageにMELPA追加
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(package-initialize)
+
+
 
 ;; 折り返しトグルコマンド
 (define-key global-map (kbd "C-c l") 'toggle-truncate-lines)
@@ -403,3 +376,10 @@
                            (setq flycheck-gcc-language-standard "c++11")
                            (setq flycheck-clang-language-standard "c++11")))
 (setq flycheck-c/c++-clang-executable "/usr/bin/clang")
+
+
+;; Mac OS Xの場合のファイル名の設定
+(when (eq system-type 'darwin)
+  (require 'ucs-normalize)
+  (set-file-name-coding-system 'utf-8-hfs)
+  (setq locale-coding-system 'utf-8-hfs))
