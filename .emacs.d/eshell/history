@@ -46,3 +46,6 @@ git push origin master
 git commit -a
 exit
 exit
+ls
+mv others.h test.cpp
+exit

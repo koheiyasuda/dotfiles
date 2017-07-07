@@ -360,8 +360,8 @@
              (define-key c-mode-base-map "\C-m" 'newline-and-indent)
 ))
 
-;; C言語で記号の前後に自動でスペースを入れる
-(add-hook 'c-mode-common-hook #'electric-spacing-mode)
+;; 記号の前後に自動でスペースを入れる機能ON/OFF
+(global-set-key (kbd "C-x e") 'smart-operator-mode)
 
 ;; flycheck設定
 (require 'flycheck)
