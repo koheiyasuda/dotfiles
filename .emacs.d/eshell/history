@@ -49,3 +49,15 @@ exit
 ls
 mv others.h test.cpp
 exit
+ls
+make
+ls
+./sdlsimple 
+exit
+ls
+cd .
+ls
+cd ..
+cd ..
+ls
+exit
