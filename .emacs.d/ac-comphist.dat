@@ -1,36 +1,60 @@
-((("SDL" .
-   [2 0 0])
-  ("global-set-key" .
-   [0 0 0 0 0 0 0 0 0 0 1 0 0 0])
-  ("smart-operator-mode" .
-   [0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("provide" .
-   [1 0 0 0 0 0 0])
-  ("float" .
-   [0 0 0 0 1])
-  ("return" .
-   [0 0 0 0 0 1])
-  ("void" .
-   [0 0 0 1])
-  ("toggle-truncate-lines" .
-   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("kbd" .
-   [2 0 0])
-  ("global-map" .
-   [0 0 0 0 0 0 0 0 0 1])
-  ("define-key" .
-   [0 0 0 0 0 0 0 0 0 1])
-  ("defimage" .
-   [0 0 0 0 0 1 0 0])
-  ("kohekohe" .
-   [2 0 0 0 0 0 0 0])
-  ("require" .
-   [2 0 0 0 0 0 0])
-  ("load-theme" .
-   [1 0 0 0 0 0 0 0 0 0])
-  ("solarized-theme.el" .
-   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+((("user_y" .
+   [1 0 0 0 3 1])
+  ("user" .
+   [1 0 0 0])
+  ("endl" .
+   [2 0 0 0])
+  ("user_x" .
+   [3 0 0 0 2 0])
+  ("Use" .
+   [0 0 1])
+  ("include" .
+   [0 0 0 0 0 1 0])
+  ("iostream" .
+   [0 0 1 0 0 0 0 0])
+  ("num" .
+   [4 0 0])
+  ("is" .
+   [1 0])
+  ("main" .
+   [1 0 0 0])
+  ("std" .
+   [1 0 0])
+  ("namespace" .
+   [0 0 0 0 0 0 0 0 1])
+  ("test-completion" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
   ("solarized-color-blend" .
    [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
-  ("test-completion" .
-   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])))
+  ("solarized-theme.el" .
+   [0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("load-theme" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("require" .
+   [2 0 0 0 0 0 0])
+  ("kohekohe" .
+   [2 0 0 0 0 0 0 0])
+  ("defimage" .
+   [0 0 0 0 0 1 0 0])
+  ("define-key" .
+   [0 0 0 0 0 0 0 0 0 1])
+  ("global-map" .
+   [0 0 0 0 0 0 0 0 0 1])
+  ("kbd" .
+   [2 0 0])
+  ("toggle-truncate-lines" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("void" .
+   [0 0 0 1])
+  ("return" .
+   [0 0 0 0 0 1])
+  ("float" .
+   [0 0 0 0 1])
+  ("provide" .
+   [1 0 0 0 0 0 0])
+  ("smart-operator-mode" .
+   [0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("global-set-key" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0 0])
+  ("SDL" .
+   [2 0 0])))

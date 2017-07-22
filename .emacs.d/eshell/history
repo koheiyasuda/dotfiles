@@ -61,3 +61,32 @@ cd ..
 cd ..
 ls
 exit
+ls
+cd ..
+;s
+ls
+mkdir practice
+ls
+cd practice/
+exit
+ls
+cd .. ls
+cd ..
+ls
+cd practice/
+ls
+ls
+./pra1 
+g++ -o pra2 pra1.cpp 
+./pra2
+g++ -o pra2 pra1.cpp 
+./pra2
+./pra2
+g++ -o pra2 pra1.cpp 
+./pra2
+g++ -o pra2 pra1.cpp 
+./pra2
+g++ -o pra2 pra1.cpp 
+./pra2
+g++ -o pra2 pra1.cpp 
+./pra2
